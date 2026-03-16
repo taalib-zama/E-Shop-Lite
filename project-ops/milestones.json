@@ -1,0 +1,27 @@
+[
+  {
+    "title": "M0 \u2013 Foundation",
+    "description": "Platform + Infra + Docs",
+    "due_on": "2026-03-10T00:00:00Z"
+  },
+  {
+    "title": "M1 \u2013 Identity & Catalog",
+    "description": "Sprint 1 scope",
+    "due_on": "2026-03-24T00:00:00Z"
+  },
+  {
+    "title": "M2 \u2013 Orders & Inventory",
+    "description": "Sprint 2 scope",
+    "due_on": "2026-04-07T00:00:00Z"
+  },
+  {
+    "title": "M3 \u2013 Payments & Notifications",
+    "description": "Sprint 3 scope",
+    "due_on": "2026-04-21T00:00:00Z"
+  },
+  {
+    "title": "M4 \u2013 Hardening & Observability",
+    "description": "Sprint 4 scope",
+    "due_on": "2026-05-05T00:00:00Z"
+  }
+]

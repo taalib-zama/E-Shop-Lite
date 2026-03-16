@@ -1,0 +1,67 @@
+[
+  {
+    "name": "story",
+    "color": "1f883d",
+    "description": "User story"
+  },
+  {
+    "name": "task",
+    "color": "0969da",
+    "description": "Technical task / chore"
+  },
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "Bug report"
+  },
+  {
+    "name": "documentation",
+    "color": "0e8a16",
+    "description": "Docs work"
+  },
+  {
+    "name": "infra",
+    "color": "7057ff",
+    "description": "Infra / pipelines / ops"
+  },
+  {
+    "name": "platform",
+    "color": "5319e7",
+    "description": "Gateway/Config/Eureka"
+  },
+  {
+    "name": "service:user",
+    "color": "c2e0c6",
+    "description": "User service"
+  },
+  {
+    "name": "service:catalog",
+    "color": "bfdadc",
+    "description": "Catalog service"
+  },
+  {
+    "name": "service:order",
+    "color": "bfe5bf",
+    "description": "Order service"
+  },
+  {
+    "name": "service:inventory",
+    "color": "bfd4f2",
+    "description": "Inventory service"
+  },
+  {
+    "name": "priority:high",
+    "color": "b60205",
+    "description": "High priority"
+  },
+  {
+    "name": "priority:medium",
+    "color": "d93f0b",
+    "description": "Medium priority"
+  },
+  {
+    "name": "priority:low",
+    "color": "fbca04",
+    "description": "Low priority"
+  }
+]
