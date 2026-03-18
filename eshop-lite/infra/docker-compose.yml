@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: eshop
+      POSTGRES_PASSWORD: eshop
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  # You can split into users_db and catalog_db schemas or use separate DBs if desired
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    ports:
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+  loki:
+    image: grafana/loki:2.9.0
+    command: ["-config.file=/etc/loki/local-config.yaml"]
+    ports:
+      - "3100:3100"
+  promtail:
+    image: grafana/promtail:2.9.0
+    volumes:
+      - /var/log:/var/log
+    command: ["--config.file=/etc/promtail/config.yml"]
+volumes:
+  pgdata:

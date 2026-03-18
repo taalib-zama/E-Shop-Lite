@@ -1,0 +1,158 @@
+{
+  "info": {
+    "name": "E-Shop Lite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/users",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Taalib\", \"email\": \"taalib@example.com\", \"password\": \"S3cureP@ss!\"}"
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var json = pm.response.json();",
+              "pm.collectionVariables.set('token', json.accessToken);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"taalib@example.com\", \"password\": \"S3cureP@ss!\"}"
+        }
+      }
+    },
+    {
+      "name": "Me",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/users/me",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users",
+            "me"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Product (ADMIN)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Headphones\", \"sku\": \"NC-1000-BLK\", \"price\": 10999, \"currency\": \"INR\"}"
+        }
+      }
+    },
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/products",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Product by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/products/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "products",
+            "{{id}}"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

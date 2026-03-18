@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**, /auth/**
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/products/**
+  main:
+    web-application-type: reactive
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:dev-secret}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  tracing:
+    sampling:
+      probability: 1.0
+  otlp:
+    tracing:
+      endpoint: http://localhost:4318/v1/traces
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: INFO
