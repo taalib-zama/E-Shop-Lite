@@ -1,0 +1,9 @@
+com/eshoplite/catalog/api/ProductController.class
+com/eshoplite/catalog/repo/ProductRepository.class
+com/eshoplite/catalog/config/SecurityConfig$JwtFilter$1.class
+com/eshoplite/catalog/config/OtelShutdownConfig.class
+com/eshoplite/catalog/config/SecurityConfig$JwtFilter.class
+com/eshoplite/catalog/domain/Product.class
+com/eshoplite/catalog/api/CreateProductRequest.class
+com/eshoplite/catalog/CatalogServiceApplication.class
+com/eshoplite/catalog/config/SecurityConfig.class

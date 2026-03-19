@@ -1,0 +1,12 @@
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/UserServiceApplication.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/JwtResponse.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/LoginRequest.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/RegisterRequest.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/UserController.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/UserResponse.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/config/OtelShutdownConfig.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/config/SecurityConfig.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/domain/User.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/repo/UserRepository.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/service/JwtService.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/service/RegistrationService.java

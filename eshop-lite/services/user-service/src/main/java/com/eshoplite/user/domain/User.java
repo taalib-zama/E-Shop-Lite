@@ -44,5 +44,15 @@ public class User {
   @PreUpdate
   public void preUpdate(){ this.updatedAt = Instant.now(); }
 
-  // getters/setters omitted for brevity
+  public UUID getId() { return id; }
+  public String getName() { return name; }
+  public void setName(String name) { this.name = name; }
+  public String getEmail() { return email; }
+  public void setEmail(String email) { this.email = email; }
+  public String getPasswordHash() { return passwordHash; }
+  public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
+  public String getRole() { return role; }
+  public void setRole(String role) { this.role = role; }
+  public String getStatus() { return status; }
+  public void setStatus(String status) { this.status = status; }
 }

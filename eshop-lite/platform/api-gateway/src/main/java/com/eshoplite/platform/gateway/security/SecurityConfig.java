@@ -2,6 +2,7 @@ package com.eshoplite.platform.gateway.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +10,15 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.Collection;
 import java.util.List;
 
 @Configuration
@@ -25,7 +29,6 @@ public class SecurityConfig {
   private String jwtSecret;
 
   private static final List<String> PUBLIC_POST = List.of("/users", "/auth/login");
-  private static final List<String> PUBLIC_GET = List.of("/products", "/products/");
 
   @Bean
   SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
@@ -38,7 +41,7 @@ public class SecurityConfig {
             .anyExchange().authenticated()
         )
         .addFilterAt((exchange, chain) -> authenticate(exchange).flatMap(auth -> chain.filter(exchange)),
-            ServerHttpSecurity.WebFilterOrder.AUTHENTICATION)
+            SecurityWebFiltersOrder.AUTHENTICATION)
         .httpBasic(Customizer.withDefaults())
         .build();
   }
@@ -49,12 +52,14 @@ public class SecurityConfig {
     try {
       String token = authz.substring(7);
       Claims claims = Jwts.parser()
-          .setSigningKey(jwtSecret.getBytes())
+          .verifyWith(Keys.hmacShaKeyFor(jwtSecret.getBytes()))
           .build()
           .parseSignedClaims(token)
           .getPayload();
-      String role = String.valueOf(claims.get("role", String.class));
-      var authorities = role != null ? List.of(new SimpleGrantedAuthority("ROLE_" + role)) : List.of();
+      String role = claims.get("role", String.class);
+      Collection<GrantedAuthority> authorities = role != null
+          ? List.of(new SimpleGrantedAuthority("ROLE_" + role))
+          : List.of();
       var auth = new AbstractAuthenticationToken(authorities) {
         @Override public Object getCredentials() { return token; }
         @Override public Object getPrincipal() { return claims.getSubject(); }

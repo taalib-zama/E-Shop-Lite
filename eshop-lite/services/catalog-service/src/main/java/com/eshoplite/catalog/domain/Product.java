@@ -23,5 +23,20 @@ public class Product {
   @PrePersist public void prePersist(){
     this.id = this.id==null?UUID.randomUUID():this.id; this.createdAt=Instant.now(); this.updatedAt=this.createdAt; }
   @PreUpdate public void preUpdate(){ this.updatedAt = Instant.now(); }
-  // getters/setters omitted
+
+  public UUID getId() { return id; }
+  public String getName() { return name; }
+  public void setName(String name) { this.name = name; }
+  public String getSku() { return sku; }
+  public void setSku(String sku) { this.sku = sku; }
+  public BigDecimal getPrice() { return price; }
+  public void setPrice(BigDecimal price) { this.price = price; }
+  public String getCurrency() { return currency; }
+  public void setCurrency(String currency) { this.currency = currency; }
+  public String getDescription() { return description; }
+  public void setDescription(String description) { this.description = description; }
+  public String getCategory() { return category; }
+  public void setCategory(String category) { this.category = category; }
+  public String getAttributes() { return attributes; }
+  public void setAttributes(String attributes) { this.attributes = attributes; }
 }

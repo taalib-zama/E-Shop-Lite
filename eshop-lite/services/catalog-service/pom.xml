@@ -5,6 +5,7 @@
     <groupId>com.eshoplite</groupId>
     <artifactId>eshop-lite</artifactId>
     <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
   </parent>
   <artifactId>catalog-service</artifactId>
   <name>Catalog Service</name>

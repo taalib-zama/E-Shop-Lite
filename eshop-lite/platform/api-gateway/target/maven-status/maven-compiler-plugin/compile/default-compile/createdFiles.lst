@@ -1,0 +1,4 @@
+com/eshoplite/platform/gateway/ApiGatewayApplication.class
+com/eshoplite/platform/gateway/config/OtelShutdownConfig.class
+com/eshoplite/platform/gateway/security/SecurityConfig$1.class
+com/eshoplite/platform/gateway/security/SecurityConfig.class
