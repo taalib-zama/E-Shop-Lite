@@ -5,10 +5,12 @@ services:
     environment:
       POSTGRES_USER: eshop
       POSTGRES_PASSWORD: eshop
+      POSTGRES_MULTIPLE_DATABASES: users_db,catalog_db
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
   # You can split into users_db and catalog_db schemas or use separate DBs if desired
   jaeger:
     image: jaegertracing/all-in-one:1.57
