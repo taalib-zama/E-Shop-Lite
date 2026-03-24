@@ -1,4 +1,5 @@
 /Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/UserServiceApplication.java
+/Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/GlobalExceptionHandler.java
 /Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/JwtResponse.java
 /Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/LoginRequest.java
 /Users/taalibzama/IdeaProjects/Projects 2026/eShopLite/eshop-lite/services/user-service/src/main/java/com/eshoplite/user/api/RegisterRequest.java

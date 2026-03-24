@@ -6,6 +6,7 @@ com/eshoplite/user/config/SecurityConfig$JwtFilter$1.class
 com/eshoplite/user/api/JwtResponse.class
 com/eshoplite/user/config/SecurityConfig$JwtFilter.class
 com/eshoplite/user/api/RegisterRequest.class
+com/eshoplite/user/api/GlobalExceptionHandler.class
 com/eshoplite/user/config/OtelShutdownConfig.class
 com/eshoplite/user/UserServiceApplication.class
 com/eshoplite/user/api/UserResponse.class
