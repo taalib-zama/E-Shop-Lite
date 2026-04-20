@@ -1,0 +1,22 @@
+<div class="profile-container">
+  <div class="profile-card" *ngIf="user() as u">
+    <h2>My Profile</h2>
+    <div class="profile-field">
+      <span class="label">Name</span>
+      <span class="value">{{ u.name }}</span>
+    </div>
+    <div class="profile-field">
+      <span class="label">Email</span>
+      <span class="value">{{ u.email }}</span>
+    </div>
+    <div class="profile-field">
+      <span class="label">Role</span>
+      <span class="value role-badge" [class.admin]="u.role === 'ADMIN'">{{ u.role }}</span>
+    </div>
+    <div class="profile-field">
+      <span class="label">ID</span>
+      <span class="value id-text">{{ u.id }}</span>
+    </div>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Create Account</h2>
+
+    <div class="alert alert-success" *ngIf="false">Registered successfully!</div>
+    <div class="alert alert-error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input formControlName="name" type="text" placeholder="John Doe" />
+        <span class="error" *ngIf="name.touched && name.errors?.['required']">Name is required</span>
+        <span class="error" *ngIf="name.touched && name.errors?.['minlength']">Min 2 characters</span>
+        <span class="error" *ngIf="serverErrors['name']">{{ serverErrors['name'] }}</span>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input formControlName="email" type="email" placeholder="john@example.com" />
+        <span class="error" *ngIf="email.touched && email.errors?.['required']">Email is required</span>
+        <span class="error" *ngIf="email.touched && email.errors?.['email']">Must be a valid email</span>
+        <span class="error" *ngIf="serverErrors['email']">{{ serverErrors['email'] }}</span>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input formControlName="password" type="password" placeholder="Min 8 chars, upper, lower, digit, special" />
+        <span class="error" *ngIf="password.touched && password.errors?.['required']">Password is required</span>
+        <span class="error" *ngIf="password.touched && password.errors?.['pattern']">
+          Must be at least 8 characters with upper, lower, digit and special character
+        </span>
+        <span class="error" *ngIf="serverErrors['password']">{{ serverErrors['password'] }}</span>
+      </div>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Creating account...' : 'Register' }}
+      </button>
+    </form>
+
+    <p class="auth-link">Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+</div>
